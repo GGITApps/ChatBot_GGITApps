@@ -41,12 +41,12 @@ app.post("/webhook", (req, res)=>{
     }
 })
 
-function messagingEvent (event)
+function  recieveMessaging(event)
 {
   var senderID=event.sender.Id
   var messageText = event.message.text
   console.log(messageText)
-  
+
 
   evaluateMessage(messageText)
 }
