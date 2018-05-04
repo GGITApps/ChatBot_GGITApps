@@ -27,3 +27,29 @@ app.get("/webhook", (req, res)=>{
 
 
 })
+
+app.post("/webhook", (req, res)=>{
+    var data = req.body
+    if(data.object = "page"){
+      data.entry.forEach((pageEntry)=>{
+        pageEntry.messaging.forEach((messagingEvent)=>{
+          recieveMessaging(messagingEvent)
+        })
+
+      })
+      res.sendStatus(200)
+    }
+})
+
+function messagingEvent (event)
+{
+  var senderID=event.sender.Id
+  var messageText = event.message.text
+  console.log(messageText)
+  
+
+  evaluateMessage(messageText)
+}
+function evaluateMessage(message){
+
+}
