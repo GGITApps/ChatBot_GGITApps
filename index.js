@@ -20,9 +20,9 @@ app.get("/", (req, res)=>{
 
 app.get("/webhook", (req, res)=>{
     if(req.query['hub.verify_token']=== 'test_token_say_hello'){
-      res.send(query['hub.challenge'])
+      res.send(req.query['hub.challenge'])
     }else{
-      res.send("No deberias estar aquí");
+      res.send("No deberias estar aquí")
     }
 
 
