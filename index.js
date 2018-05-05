@@ -30,9 +30,13 @@ app.get("/webhook", (req, res)=>{
 
 app.post("/webhook", (req, res)=>{
     var data = req.body
+    
+
     if(data.object = "page"){
       data.entry.forEach((pageEntry)=>{
+
         pageEntry.messaging.forEach((messagingEvent)=>{
+
           recieveMessaging(messagingEvent)
         })
 
@@ -45,8 +49,11 @@ function  recieveMessaging(event)
 {
   var senderID=event.sender.Id
   var messageText = event.message.text
-  console.log(messageText)
 
+  console.log("-----------------------")
+  console.log(senderID)
+  console.log(messageText)
+  console.log("-----------------------")
 
   evaluateMessage(messageText)
 }
