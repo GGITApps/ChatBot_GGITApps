@@ -1,0 +1,30 @@
+{
+  "name": "chatbot_ggitapps",
+  "version": "1.0.0",
+  "description": "A Little bot for the ggitapps facebook page",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongoose": "^5.0.17",
+    "request": "^2.85.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \\\"Error: no test specified\\\" &amp;&amp; exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GGITApps/ChatBot_GGITApps.git"
+  },
+  "keywords": [
+    "ChatBot"
+  ],
+  "author": "Camilo Andres Salinas Martinez",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GGITApps/ChatBot_GGITApps/issues"
+  },
+  "homepage": "https://github.com/GGITApps/ChatBot_GGITApps#readme"
+}
