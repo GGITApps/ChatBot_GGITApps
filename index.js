@@ -4,10 +4,11 @@ var bodyParser = require("body-parser")
 
 var request = require("request")
 
-const appkey= process.env.KEY || "EAABvEfABmhwBAPfzX17H5McD6l3ZAYm7K0yDCpGo738IPDdDDbfHvYMZCIkfwHKgrN5nkgNZBsAW3pTQA4pNPjYDiZBblxamQprkhbwNoiZCzPpmQv2iRZCwu97WU0d9SML2XHSItQEBh85khKq4w8vWVIPRvXtlKSYpb68RmOsAZDZD"
-const port = process.env.PORT || 3000
+const appkey= process.env.KEY
+const port = process.env.PORT
 
 var app = express()
+app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 
 app.listen(port , ()=>{
@@ -20,9 +21,11 @@ app.get("/", (req, res)=>{
 
 app.get("/webhook", (req, res)=>{
     if(req.query['hub.verify_token']=== 'test_token_say_hello'){
+      console.log("Realizado el webhook")
       res.send(req.query['hub.challenge'])
     }else{
       res.send("No deberias estar aquí")
+      res.sendStatus(403);
     }
 
 
@@ -30,7 +33,7 @@ app.get("/webhook", (req, res)=>{
 
 app.post("/webhook", (req, res)=>{
     var data = req.body
-    
+
 
     if(data.object = "page"){
       data.entry.forEach((pageEntry)=>{
