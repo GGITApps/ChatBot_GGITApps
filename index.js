@@ -19,6 +19,10 @@ app.get("/", (req, res)=>{
     res.send("Bienvenido a el GET ")
 })
 
+app.get("/.well-known/acme-challenge/NZYDiaPHFDZ18ecrnPYMrjNmUmmg8p9BypKD4Bq0b_c", (req,res)=>{
+	res.send("NZYDiaPHFDZ18ecrnPYMrjNmUmmg8p9BypKD4Bq0b_c.t9HdmWtLDRzVcySOcqaWesEBErfXXtZK44E7R3e1ywA")
+})
+
 app.get("/webhook", (req, res)=>{
     if(req.query['hub.verify_token']=== process.env.VERTOKEN){
       console.log("Realizado el webhook")
@@ -47,6 +51,8 @@ app.post("/webhook", (req, res)=>{
       res.sendStatus(200)
     }
 })
+
+
 
 function  recieveMessaging(event)
 {
