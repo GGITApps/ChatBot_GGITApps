@@ -160,7 +160,7 @@ function buttonTemplate(){
 function callSendAPI(messageData){
 	request({
 		uri: 'https://graph.facebook.com/v2.6/me/messages',
-		qs : { access_token :  APP_TOKEN },
+		qs : { access_token :  appkey },
 		method: 'POST',
 		json: messageData
 	}, function(error, response, data){
